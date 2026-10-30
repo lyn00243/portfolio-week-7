@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Lin Zhou</title>
+  <meta name="description" content="A selection of projects by Lin Zhou." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand"><span class="dot">L</span> Lin Zhou</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Say hi</a>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- Page head -->
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Things I've built</span>
+      <h1>Projects</h1>
+      <p>A handful of things I'm proud of — from client work to weekend experiments.</p>
+    </div>
+  </section>
+
+  <!-- To-do planner (interactive) -->
+  <section class="section" style="background: var(--cream-dark);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Mini app</span>
+        <h2>Planner — a small to-do list</h2>
+        <p>Pick a date, optionally tag it with a priority or emoji, and press Add. Click a task's text to edit it; tick the box when it's done; use the × to remove it. Saved locally in your browser.</p>
+      </div>
+
+      <div class="todo-app reveal">
+        <div class="todo-calendar" role="group" aria-label="Calendar">
+          <div class="cal-head">
+            <button id="calPrev" type="button" class="cal-nav" aria-label="Previous month">&lsaquo;</button>
+            <div id="calTitle" class="cal-title"></div>
+            <button id="calNext" type="button" class="cal-nav" aria-label="Next month">&rsaquo;</button>
+          </div>
+          <div class="cal-grid cal-weekdays">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+          <div id="calGrid" class="cal-grid cal-days"></div>
+        </div>
+
+        <div class="todo-main">
+          <form id="todoForm" class="todo-form">
+            <div class="todo-date-row">
+              <span class="todo-date-label">Date</span>
+              <span id="todoDateDisplay" class="todo-date-value">Select a date</span>
+            </div>
+            <div class="todo-tag-row">
+              <span class="todo-tag-label">Tag</span>
+              <div id="todoTags" class="todo-tags" role="group" aria-label="Optional tag">
+                <button type="button" class="todo-tag pri-low" data-tag="pri-low">Low</button>
+                <button type="button" class="todo-tag pri-med" data-tag="pri-med">Med</button>
+                <button type="button" class="todo-tag pri-high" data-tag="pri-high">High</button>
+                <button type="button" class="todo-tag emoji" data-tag="emoji" data-emoji="&#128221;" aria-label="Memo emoji">&#128221;</button>
+                <button type="button" class="todo-tag emoji" data-tag="emoji" data-emoji="&#128161;" aria-label="Idea emoji">&#128161;</button>
+                <button type="button" class="todo-tag emoji" data-tag="emoji" data-emoji="&#11088;" aria-label="Star emoji">&#11088;</button>
+                <button type="button" class="todo-tag emoji" data-tag="emoji" data-emoji="&#128218;" aria-label="Books emoji">&#128218;</button>
+                <button type="button" class="todo-tag emoji" data-tag="emoji" data-emoji="&#9749;" aria-label="Coffee emoji">&#9749;</button>
+              </div>
+            </div>
+            <div class="todo-input-row">
+              <input id="todoInput" type="text" placeholder="Add a task…" autocomplete="off" required />
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </form>
+
+          <div id="todoCount" class="todo-count" hidden>
+            <span id="todoCountText" class="todo-count-text"></span>
+            <div class="todo-progress"><div id="todoProgressBar" class="todo-progress-bar"></div></div>
+          </div>
+
+          <ul id="todoList" class="todo-list" aria-label="Tasks"></ul>
+          <p id="todoEmpty" class="todo-empty">No tasks yet. Pick a date and add your first one.</p>
+          <div id="todoError" class="todo-error" role="alert" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weather app (interactive) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Mini app</span>
+        <h2>Weather — look up any city</h2>
+        <p>Type a city name and press Search to see its current temperature, conditions and weather icon, served live by the UAPI Weather API.</p>
+      </div>
+
+      <div class="weather-app reveal">
+        <form id="weatherForm" class="weather-form">
+          <input id="weatherInput" type="text" placeholder="Enter a city, e.g. Shanghai" autocomplete="off"
+                 aria-label="City name" />
+          <button id="weatherBtn" type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <p id="weatherMsg" class="weather-msg" role="status" hidden></p>
+
+        <div id="weatherSuggest" class="weather-suggest" hidden>
+          <div id="weatherSuggestChips" class="weather-suggest-chips"></div>
+        </div>
+
+        <div id="weatherResult" class="weather-card" hidden>
+          <div class="weather-current">
+            <div class="weather-main">
+              <span id="weatherIcon" class="weather-icon" aria-hidden="true"></span>
+              <div class="weather-temp"><span id="weatherTemp"></span><small id="weatherTempUnit">°C</small></div>
+            </div>
+            <div class="weather-info">
+              <div class="weather-card-head">
+                <h3 id="weatherCity" class="weather-city"></h3>
+                <div class="weather-unit" role="group" aria-label="Temperature unit">
+                  <button type="button" class="weather-unit-btn is-active" data-unit="C">°C</button>
+                  <button type="button" class="weather-unit-btn" data-unit="F">°F</button>
+                </div>
+              </div>
+              <p id="weatherCond" class="weather-cond"></p>
+              <ul class="weather-details">
+                <li id="weatherTimeRow" hidden>Local time&nbsp; <strong id="weatherLocalTime"></strong></li>
+                <li>Humidity&nbsp; <strong id="weatherHumidity"></strong></li>
+                <li>Wind&nbsp; <strong id="weatherWind"></strong></li>
+                <li>Updated&nbsp; <strong id="weatherUpdated"></strong></li>
+              </ul>
+            </div>
+          </div>
+          <div id="weatherForecast" class="weather-forecast" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- English word quiz for kids -->
+  <section class="section" style="background: var(--cream-dark);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Mini app</span>
+        <h2>English Words — a picture quiz for kids</h2>
+        <p>A gentle word-learning game for children aged 3–6. Look at the picture, pick the right English word, and collect three stars at the end. Opens as a single self-contained page.</p>
+      </div>
+      <div class="reveal">
+        <a href="english-app.html" class="btn btn-primary">Open the quiz
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-fun">Fun fact: I once accidentally <strong> emailed a haiku </strong> to a client instead of a project proposal. They loved it. 🍵</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.02c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97 0 1.95.13 2.86.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.77 1.06.77 2.14v3.17c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-11h3v11zm-1.5-12.25c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.25h-3v-5.6c0-3.37-4-3.12-4 0v5.6h-3v-11h3v1.77c1.4-2.59 7-2.78 7 2.48v6.75z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Lin Zhou · Built with warm coffee and cold hands</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

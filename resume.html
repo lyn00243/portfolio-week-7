@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Lin Zhou</title>
+  <meta name="description" content="The resume of Lin Zhou — graduate student in Digital Education with a background in Computer Science." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand"><span class="dot">L</span> Lin Zhou</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="resume.html" class="active">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Say hi</a>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- Page head -->
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Curriculum Vitae</span>
+      <h1>Resume</h1>
+      <p>A concise overview of my academic background, professional experience, and core competencies.</p>
+      <a class="resume-dl" href="resume.pdf" download="Lin-Zhou-Resume.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Download PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- Resume body -->
+  <section class="section" style="padding-top:1rem;">
+    <div class="container">
+      <div class="card reveal">
+
+        <!-- 1. Summary -->
+        <div class="resume-block">
+          <h2><span class="bar"></span>Summary</h2>
+          <p class="resume-summary">
+            I am a graduate student pursuing a Master’s degree in Digital Education, with a solid undergraduate background in Computer Science and Technology. I possess practical experience in software development and educational tutoring, combining technical programming capabilities with professional digital education theories. I am proficient in academic document writing, cross-team collaboration and personalized student learning guidance.
+          </p>
+        </div>
+
+        <!-- 2. Experience -->
+        <div class="resume-block">
+          <h2><span class="bar"></span>Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Mar 2023 — Jun 2023</div>
+              <h3>Software Engineer</h3>
+              <div class="org">Shanghai Fenli Information Technology Co., Ltd.</div>
+              <ul class="resume-bullets">
+                <li>Participated in backend system development and architecture collaboration, completed functional programming iteration and daily maintenance of business systems.</li>
+                <li>Inspected and fixed system bugs, optimized operational performance, and ensured stable and efficient system operation.</li>
+                <li>Compiled standardized API documents and user operation manuals, and communicated development progress with cross-department teams.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Jan 2022</div>
+              <h3>Teaching Assistant</h3>
+              <div class="org">Guanlan Education</div>
+              <ul class="resume-bullets">
+                <li>Corrected students’ homework and examination papers, provided targeted academic Q&amp;A and after-class tutoring services.</li>
+                <li>Assisted formal teachers in classroom teaching arrangement, recorded students’ learning difficulties and analyzed their learning situations.</li>
+                <li>Sorted out teaching materials and optimized auxiliary teaching plans to improve overall learning efficiency of students.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Education -->
+        <div class="resume-block">
+          <h2><span class="bar"></span>Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Jun 2026 — Present</div>
+              <h3>Master of Science in Digital Education</h3>
+              <div class="org">Xi’an Jiaotong-Liverpool University</div>
+              <ul class="resume-bullets">
+                <li>Learned core courses including educational leadership, global education governance and learning experience research.</li>
+                <li>Focus on academic research on the application of generative AI in modern university digital education and curriculum design.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Sep 2019 — Jul 2023</div>
+              <h3>Bachelor of Science in Computer Science and Technology</h3>
+              <div class="org">Shanghai Jianqiao University</div>
+              <ul class="resume-bullets">
+                <li>Studied core technical courses such as Java, C Language, Database System and Computer Network to build solid technical foundations.</li>
+                <li>Cultivated logical thinking, technical problem-solving ability and standardized project document writing ability.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Skills -->
+        <div class="resume-block" style="margin-bottom:0;">
+          <h2><span class="bar"></span>Skills</h2>
+          <div class="skill-groups">
+            <div class="skill-group">
+              <h3>1. Programming Technology</h3>
+              <ul><li>Java</li><li>C Language</li><li>SQL Database</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3>2. Academic Ability</h3>
+              <ul><li>English academic reading</li><li>Educational literature analysis</li><li>Thesis &amp; document writing</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3>3. Office Tools</h3>
+              <ul><li>Microsoft Office Suite</li><li>Data sorting and material compilation</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3>4. Educational Practice</h3>
+              <ul><li>Student learning assessment</li><li>Tutoring guidance</li><li>Curriculum auxiliary design</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3>5. Comprehensive Ability</h3>
+              <ul><li>Cross-team communication</li><li>Task coordination</li><li>Problem analysis</li></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-fun">Fun fact: I once accidentally <strong> emailed a haiku </strong> to a client instead of a project proposal. They loved it. 🍵</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.02c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97 0 1.95.13 2.86.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.77 1.06.77 2.14v3.17c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-11h3v11zm-1.5-12.25c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.25h-3v-5.6c0-3.37-4-3.12-4 0v5.6h-3v-11h3v1.77c1.4-2.59 7-2.78 7 2.48v6.75z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Lin Zhou · Built with warm coffee and cold hands</div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

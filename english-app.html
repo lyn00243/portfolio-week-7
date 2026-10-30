@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let's Learning English — Word Quiz for Kids</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #FFF3D6 0%, #FFE3EC 45%, #DCEEFF 100%);
+      color: #4A3B32;
+      padding: 1.5rem;
+    }
+
+    .card {
+      background: #FFFDF7;
+      border: 4px solid #FFD66B;
+      border-radius: 32px;
+      box-shadow: 0 12px 0 rgba(255, 182, 193, 0.55), 0 24px 40px rgba(120, 90, 40, 0.12);
+      max-width: 460px; width: 100%;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    /* ===== Screens: only one visible at a time ===== */
+    .screen { display: none; }
+    .screen.active { display: block; animation: pop .35s ease; }
+
+    @keyframes pop {
+      from { transform: scale(.9); opacity: 0; }
+      to   { transform: scale(1);  opacity: 1; }
+    }
+
+    h1 {
+      font-size: 2.2rem; line-height: 1.25;
+      color: #FF6F91;
+      text-shadow: 2px 2px 0 #FFE3EC;
+      margin-bottom: 1.25rem;
+    }
+    .home-emoji { font-size: 3.2rem; display: block; margin-bottom: 0.75rem; }
+    .home-sub { font-size: 1.05rem; color: #8A7663; margin-bottom: 1.75rem; }
+
+    .btn-start {
+      font-family: inherit; font-size: 1.4rem; font-weight: 700;
+      color: #fff; background: #FF9F45;
+      border: none; border-radius: 999px;
+      padding: 0.85rem 3rem; cursor: pointer;
+      box-shadow: 0 6px 0 #E07F2E;
+      transition: transform .1s, box-shadow .1s;
+    }
+    .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 0 #E07F2E; }
+    .btn-start:active { transform: translateY(3px); box-shadow: 0 2px 0 #E07F2E; }
+
+    .q-progress { font-size: 1rem; color: #B29B85; margin-bottom: 0.75rem; font-weight: 700; }
+    .q-img {
+      width: 220px; height: 220px; object-fit: cover;
+      border-radius: 24px; border: 4px solid #BDE0FE;
+      background: #F4FAFF; margin-bottom: 1.25rem;
+    }
+    .q-label { font-size: 1.15rem; font-weight: 700; color: #5E8C61; margin-bottom: 1.25rem; }
+
+    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .opt {
+      font-family: inherit; font-size: 1.3rem; font-weight: 700;
+      padding: 0.9rem 0.5rem; border-radius: 18px;
+      background: #E8F5E9; color: #3E6B43;
+      border: 3px solid #A8D5A2; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      transition: transform .1s;
+    }
+    .opt:hover:not(.locked) { transform: scale(1.04); }
+    .opt .mark { font-size: 1.4rem; font-weight: 900; }
+    .opt.wrong { background: #FFE3E3; border-color: #FF8A8A; color: #C0392B; }
+    .opt.correct { background: #D9F7E3; border-color: #3DBB6B; color: #1E8A46; }
+    .opt.locked { cursor: default; }
+
+    .win-emoji { font-size: 3.5rem; display: block; margin-bottom: 0.5rem; }
+    .win-stars { font-size: 1.6rem; letter-spacing: 0.3rem; margin-bottom: 1rem; }
+    .win-sub { font-size: 1.05rem; color: #8A7663; }
+
+    @media (max-width: 420px) {
+      .card { padding: 1.75rem 1.25rem; }
+      h1 { font-size: 1.8rem; }
+      .q-img { width: 180px; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+
+    <!-- Home screen -->
+    <section id="homeScreen" class="screen active">
+      <span class="home-emoji" aria-hidden="true">🍎📚🐶</span>
+      <h1>Let's learning English</h1>
+      <p class="home-sub">Look at the picture and pick the right word!</p>
+      <button id="startBtn" class="btn-start" type="button">Start ▶</button>
+    </section>
+
+    <!-- Question screen (reused for all 3 questions) -->
+    <section id="quizScreen" class="screen">
+      <p id="qProgress" class="q-progress"></p>
+      <img id="qImg" class="q-img" src="" alt="Look at the picture" />
+      <p class="q-label">What is this? 🤔</p>
+      <div id="qOptions" class="options"></div>
+    </section>
+
+    <!-- Victory screen — only shown after question 3 is answered correctly -->
+    <section id="winScreen" class="screen">
+      <span class="win-emoji" aria-hidden="true">🎉</span>
+      <div class="win-stars" aria-hidden="true">⭐⭐⭐</div>
+      <h1>You did it!</h1>
+      <p class="win-sub">Great job! You learned 3 new English words! 🏆</p>
+      <button id="againBtn" class="btn-start" type="button" style="margin-top:1.75rem;">Play Again ↻</button>
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      var QUESTIONS = [
+        { img: '1.jpg', answer: 'apple', options: ['apple', 'banana', 'pear', 'grape'] },
+        { img: '2.jpg', answer: 'dog',   options: ['dog', 'cat', 'mouse', 'bird'] },
+        { img: '3.jpg', answer: 'eye',   options: ['eye', 'hand', 'foot', 'nose'] }
+      ];
+
+      var homeScreen  = document.getElementById('homeScreen');
+      var quizScreen  = document.getElementById('quizScreen');
+      var winScreen   = document.getElementById('winScreen');
+      var startBtn    = document.getElementById('startBtn');
+      var againBtn    = document.getElementById('againBtn');
+      var qProgress   = document.getElementById('qProgress');
+      var qImg        = document.getElementById('qImg');
+      var qOptions    = document.getElementById('qOptions');
+
+      var current = 0;
+
+      function show(screen) {
+        homeScreen.classList.remove('active');
+        quizScreen.classList.remove('active');
+        winScreen.classList.remove('active');
+        screen.classList.add('active');
+      }
+
+      function renderQuestion() {
+        var q = QUESTIONS[current];
+        qProgress.textContent = 'Question ' + (current + 1) + ' of ' + QUESTIONS.length;
+        qImg.src = q.img;
+        qOptions.innerHTML = '';
+
+        q.options.forEach(function (word) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'opt';
+          btn.textContent = word;
+          btn.addEventListener('click', function () { pick(btn, word, q); });
+          qOptions.appendChild(btn);
+        });
+      }
+
+      function pick(btn, word, q) {
+        if (btn.classList.contains('locked')) return;
+
+        if (word === q.answer) {
+          btn.classList.add('correct');
+          btn.insertAdjacentHTML('beforeend', ' <span class="mark" aria-hidden="true">✓</span>');
+          // Lock everything, celebrate briefly, then move on.
+          Array.prototype.forEach.call(qOptions.children, function (b) { b.classList.add('locked'); });
+          setTimeout(function () {
+            current++;
+            if (current < QUESTIONS.length) {
+              renderQuestion();
+            } else {
+              show(winScreen); // victory only after the last question is correct
+            }
+          }, 900);
+        } else {
+          btn.classList.add('wrong', 'locked');
+          btn.insertAdjacentHTML('beforeend', ' <span class="mark" aria-hidden="true">✗</span>');
+          // Options stay on screen until the correct word is picked.
+        }
+      }
+
+      startBtn.addEventListener('click', function () {
+        current = 0;
+        renderQuestion();
+        show(quizScreen);
+      });
+
+      againBtn.addEventListener('click', function () {
+        current = 0;
+        renderQuestion();
+        show(quizScreen);
+      });
+    })();
+  </script>
+</body>
+</html>

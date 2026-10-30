@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Lin Zhou</title>
+  <meta name="description" content="Get in touch with Lin Zhou." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand"><span class="dot">L</span> Lin Zhou</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Say hi</a>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- Page head -->
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Let's talk</span>
+      <h1>Contact Me</h1>
+      <p>Got a project, a question, or just want to say hello? I'd genuinely love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" style="padding-top:1rem;">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info card -->
+        <div class="contact-info-card reveal">
+          <h2>Hi, friend! 👋</h2>
+          <p>I usually reply within a day or two. Whether it's a big idea or a tiny hello, my inbox is always open.</p>
+          <div class="contact-item">
+            <div class="ic">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div><div class="lbl">Email</div><div class="val">Lin.Zhou26@student.xjtlu.edu.cn</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="2.5"/></svg>
+            </div>
+            <div><div class="lbl">Based in</div><div class="val">Shanghai, China</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
+            </div>
+            <div><div class="lbl">Best time to reach</div><div class="val">Mornings, CST</div></div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-card reveal" style="transition-delay:.1s">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Appleseed" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your email</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Your message</label>
+              <textarea id="message" name="message" placeholder="Tell me what's on your mind..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Send message
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9-7-9-7M21 12H3"/></svg>
+            </button>
+            <div id="formMsg" class="form-msg">Thanks for reaching out! I'll get back to you soon. 🌿</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-fun">Fun fact: I once accidentally <strong> emailed a haiku </strong> to a client instead of a project proposal. They loved it. 🍵</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.02c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97 0 1.95.13 2.86.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.77 1.06.77 2.14v3.17c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8 19h-3v-11h3v11zm-1.5-12.25c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.25h-3v-5.6c0-3.37-4-3.12-4 0v5.6h-3v-11h3v1.77c1.4-2.59 7-2.78 7 2.48v6.75z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Lin Zhou · Built with warm coffee and cold hands</div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
